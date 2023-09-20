@@ -9,7 +9,7 @@ class BtnEvent extends Event {
   }
 }
 
-export function BtnList({ className }: { className: string }) {
+export function BtnList() {
   const [list, setList] = useState<TBtn[]>([])
   const addBtn = useCallback(
     (e: BtnEvent) => {
@@ -32,18 +32,33 @@ export function BtnList({ className }: { className: string }) {
     addOutsideProperty(eventName, dispatchAddBtn)
   }, [addBtn])
 
+  if (!list.length) {
+    return null
+  }
+
   return (
-    <div className={className + " " + style.list}>
-      {list.map(item => (
-        <button
-          onClick={item.fn}
-          className={style.btn}
-          key={item.id}
-          type="button"
-        >
-          {item.title}
-        </button>
-      ))}
+    <div className={style.wrap}>
+      <button type="button">
+        <img
+          src="//helper.kvanyukov.ru/images/logo/logo_57x57.png"
+          alt="KV logo"
+          width={32}
+          height={32}
+        />
+      </button>
+
+      <div className={style.list}>
+        {list.map(item => (
+          <button
+            onClick={item.fn}
+            className={style.btn}
+            key={item.id}
+            type="button"
+          >
+            {item.title}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }

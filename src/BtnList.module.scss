@@ -1,8 +1,18 @@
+.wrap {
+	position: relative;
+
+	&:hover .list {
+		height: auto;
+	}
+}
+
 .list {
 	position: absolute;
 	right: 0;
 	display: flex;
 	gap: 12px;
+	height: 0;
+	overflow: hidden;
 }
 
 .btn {

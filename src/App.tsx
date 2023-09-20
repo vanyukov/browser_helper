@@ -1,15 +1,18 @@
-import { useEffect } from "react"
+import { BtnList } from "./BtnList"
+import style from "./App.module.scss"
 
 function App() {
-  useEffect(() => {}, [])
   return (
-    <div className="App">
-      <img
-        src="//helper.kvanyukov.ru/images/logo/logo_57x57.png"
-        alt="KV logo"
-        width={32}
-        height={32}
-      />
+    <div className={style.app}>
+      <button type="button">
+        <img
+          src="//helper.kvanyukov.ru/images/logo/logo_57x57.png"
+          alt="KV logo"
+          width={32}
+          height={32}
+        />
+      </button>
+      <BtnList className={style.btnList}/>
     </div>
   )
 }
